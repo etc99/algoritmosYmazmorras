@@ -1,0 +1,15 @@
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\bin\Debug\net6.0\dungeonGenerator.exe
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\bin\Debug\net6.0\dungeonGenerator.deps.json
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\bin\Debug\net6.0\dungeonGenerator.runtimeconfig.json
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\bin\Debug\net6.0\dungeonGenerator.dll
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\bin\Debug\net6.0\dungeonGenerator.pdb
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\obj\Debug\net6.0\dungeonGenerator.csproj.AssemblyReference.cache
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\obj\Debug\net6.0\dungeonGenerator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\obj\Debug\net6.0\dungeonGenerator.AssemblyInfoInputs.cache
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\obj\Debug\net6.0\dungeonGenerator.AssemblyInfo.cs
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\obj\Debug\net6.0\dungeonGenerator.csproj.CoreCompileInputs.cache
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\obj\Debug\net6.0\dungeonGenerator.dll
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\obj\Debug\net6.0\refint\dungeonGenerator.dll
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\obj\Debug\net6.0\dungeonGenerator.pdb
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\obj\Debug\net6.0\dungeonGenerator.genruntimeconfig.cache
+C:\Users\etc1002\TFG\algoritmosYmazmorras\dungeonGenerator\dungeonGenerator\obj\Debug\net6.0\ref\dungeonGenerator.dll
