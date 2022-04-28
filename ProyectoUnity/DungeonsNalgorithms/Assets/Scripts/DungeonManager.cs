@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class DungeonManager : MonoBehaviour
 {
     private Dungeon dungeon ;
@@ -17,6 +16,27 @@ public class DungeonManager : MonoBehaviour
        DrawMaze();
     }
 
+/*    void PrimsAlgorithm(){
+        ArrayList Unvisited = new ArrayList();
+        var rndX = Random.Range(0,mazeSize.x);
+        var rndY = Random.Range(0,mazeSize.y);
+        ArrayList Visited = new ArrayList();
+        
+        //obj Cell¿?
+        char firstPosition = dungeon.Maze[rndX,rndY];
+        Visited.Add(firstPosition);
+        
+        for(int i =0 ; i<4;i++){
+            Unvisited.Add(firstPosition);
+        }
+        /*
+        for(int i=0; i< mazeSize.x; i++ ){
+            for (int j=0; j<mazeSize.y ; j++){
+                //dungeon.Maze[i,j]; 
+                
+            }
+        }
+    }*/
    
     void DrawMaze(){
         string output = "";
@@ -24,9 +44,14 @@ public class DungeonManager : MonoBehaviour
             for (int j=0; j<mazeSize.y ; j++){
                 if(i==characterPosition.x && j== characterPosition.y){
                     output += "<color=magenta>@</color>";
-                }else{
-                    output += dungeon.Maze[i,j] ;
+                }else if(dungeon.Maze[i,j]==0){
+                    output += '.';
+                }else if(dungeon.Maze[i,j]==1){
+                    output += "<color=lime>#</color>";
                 }
+                /*
+                    output += dungeon.Maze[i,j] ;
+                }*/
 
             }
             output += "\n";
@@ -36,7 +61,6 @@ public class DungeonManager : MonoBehaviour
     }
     void MovePlayer(){
          if(Input.GetKeyDown(KeyCode.W)&& characterPosition.x>0 && !CheckWall(characterPosition.x-1,characterPosition.y)){
-
             characterPosition.x -= 1;
             DrawMaze();
         }
@@ -54,7 +78,7 @@ public class DungeonManager : MonoBehaviour
         }
     }
     bool CheckWall(int x, int y){
-        if(dungeon.Maze[x,y]== '#'){
+        if(dungeon.Maze[x,y]== 1){
             return true;
         }
         return false;
@@ -62,7 +86,6 @@ public class DungeonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        MovePlayer();
+       MovePlayer();
     }
 }
