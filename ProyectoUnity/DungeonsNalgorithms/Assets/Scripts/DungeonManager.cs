@@ -16,28 +16,7 @@ public class DungeonManager : MonoBehaviour
        DrawMaze();
     }
 
-/*    void PrimsAlgorithm(){
-        ArrayList Unvisited = new ArrayList();
-        var rndX = Random.Range(0,mazeSize.x);
-        var rndY = Random.Range(0,mazeSize.y);
-        ArrayList Visited = new ArrayList();
-        
-        //obj Cell¿?
-        char firstPosition = dungeon.Maze[rndX,rndY];
-        Visited.Add(firstPosition);
-        
-        for(int i =0 ; i<4;i++){
-            Unvisited.Add(firstPosition);
-        }
-        /*
-        for(int i=0; i< mazeSize.x; i++ ){
-            for (int j=0; j<mazeSize.y ; j++){
-                //dungeon.Maze[i,j]; 
-                
-            }
-        }
-    }*/
-   
+
     void DrawMaze(){
         string output = "";
         for(int i=0; i<mazeSize.x ; i++ ){

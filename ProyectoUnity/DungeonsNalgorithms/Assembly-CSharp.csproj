@@ -38,7 +38,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Dungeon.cs" />
      <Compile Include="Assets\Scripts\DungeonManager.cs" />
-     <Compile Include="Assets\Scripts\Cell.cs" />
+     <Compile Include="Assets\Scripts\MenuController.cs" />
+     <Compile Include="Assets\Scripts\ReturnButton.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.28f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
