@@ -2,22 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dungeon 
+public class Dungeon : IDungeon
 {
     private int [,] maze ;
     public float placementThreshold;
     public int [,] Maze {get{return maze;}}
+    private int mazeSizeX;
+    private int mazeSizeY;
+    public int MazeSizeX {get{return mazeSizeX;}}
+    public int MazeSizeY {get{return mazeSizeY;}}
+
+
     public Dungeon(int x, int y){
-        GenerateMaze(x,y);
+        mazeSizeX = x;
+        mazeSizeY = y;
         placementThreshold = .1f;
+        GenerateMaze(mazeSizeX,mazeSizeY);
     }
-   void GenerateMaze(int mazeSizeX, int mazeSizeY ){
-        maze = new int[mazeSizeX,mazeSizeY];
+   void GenerateMaze(int sizeX, int sizeY ){
+        maze = new int[sizeX,sizeY];
         int maxX = maze.GetUpperBound(0);
         int maxY = maze.GetUpperBound(1);
         
-        for(int i=0; i<mazeSizeX ; i++ ){
-            for (int j=0; j<mazeSizeY ; j++){
+        for(int i=0; i<sizeX ; i++ ){
+            for (int j=0; j<sizeY ; j++){
 
                 if(i ==0 || j==0|| i==maxX || j==maxY){
                     maze[i,j] = 1; 
@@ -46,8 +54,7 @@ public class Dungeon
                         }else{
                             b=1;
                         }
-                        //int a = Random.value < .5 ? 0 : (Random.value < .5 ? -1 : 1);
-                        //int b = a != 0 ? 0 : (Random.value < .5 ? -1 : 1);
+                        
                         maze[i + a, j + b] = 1;
                     }
                 }
