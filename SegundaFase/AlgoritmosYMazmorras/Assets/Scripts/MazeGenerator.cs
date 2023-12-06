@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
+
 
 public class MazeGenerator : MonoBehaviour
 {
@@ -17,7 +21,7 @@ public class MazeGenerator : MonoBehaviour
     void Start()
     {
         GenerateMap();
-        RandomFillMap();
+       
     }
 
     void GenerateMap()
@@ -25,30 +29,32 @@ public class MazeGenerator : MonoBehaviour
         map = new int[width, height];
     }
 
-    void RandomFillMap()
-    {
-        if (useRandomSeed)
-        {
-            seed = Time.time.ToString();
-        }
+    
+    //void RandomFillMap()
+    //{
+    //    if (useRandomSeed)
+    //    {
+    //        seed = Time.time.ToString();
+    //    }
 
-        System.Random pseudoRandom = new System.Random(seed.GetHashCode());
+    //    //System.Random pseudoRandom = new System.Random(seed.GetHashCode());
+    //    map = DownloadMaze.
 
-        for (int x = 0; x < width; x++)
-        {
-            for (int y = 0; y < height; y++)
-            {
-                map[x, y] = (pseudoRandom.Next(0, 100) < randomFillPercent) ? 1 : 0;
-                if (map[x, y] == 1)
-                {
-                    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    Renderer renderer = cube.GetComponent<Renderer>();
-                    renderer.material.color = map[x, y] == 1 ? Color.black : Color.white;
-                    Instantiate(cube, new Vector3(x, 0, y), Quaternion.AngleAxis(90, Vector3.right));
-                }
-            }
-        }
-    }
+    //    for (int x = 0; x < width; x++)
+    //    {
+    //        for (int y = 0; y < height; y++)
+    //        {
+    //            map[x, y] = (pseudoRandom.Next(0, 100) < randomFillPercent) ? 1 : 0;
+    //            if (map[x, y] == 1)
+    //            {
+    //                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+    //                Renderer renderer = cube.GetComponent<Renderer>();
+    //                renderer.material.color = map[x, y] == 1 ? Color.black : Color.white;
+    //                Instantiate(cube, new Vector3(x, 0, y), Quaternion.AngleAxis(90, Vector3.right));
+    //            }
+    //        }
+    //    }
+    //}
 
     //private void OnDrawGizmos()
     //{

@@ -182,10 +182,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 648325331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d2159f60b25d442a9fccbdda71a8d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 83781a7b076961a46863556c81ab5c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: 
+  _maze:
+    name: 
+    description: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
