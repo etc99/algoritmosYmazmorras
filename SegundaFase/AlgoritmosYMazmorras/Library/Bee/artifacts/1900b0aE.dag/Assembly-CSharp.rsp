@@ -350,6 +350,8 @@
 "Assets/Scripts/DownloadMaze.cs"
 "Assets/Scripts/LoadCsv.cs"
 "Assets/Scripts/MazeGenerator.cs"
+"Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/ThirdPersonCamera.cs"
 -langversion:9.0
 
 /deterministic

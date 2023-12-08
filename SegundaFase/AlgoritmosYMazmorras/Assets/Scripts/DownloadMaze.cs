@@ -20,6 +20,7 @@ public class DownloadMaze : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("Getting!");
             StartCoroutine(getMaze());
         }
     }
@@ -65,6 +66,9 @@ public class DownloadMaze : MonoBehaviour
                 {
 
                     GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    BoxCollider collider = cube.AddComponent<BoxCollider>();
+                    collider.center = cube.transform.position;
+                    collider.size = new Vector3(1,1, 1);
                     Renderer renderer = cube.GetComponent<Renderer>();
                     renderer.material.color = _maze.result[x][y] == 1 ? Color.black : Color.white;
                     Instantiate(cube, new Vector3(x, 0, y), Quaternion.AngleAxis(90, Vector3.right));

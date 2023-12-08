@@ -9,8 +9,6 @@ def read_root():
 
 @app.get("/dfs")
 def dfs():
-
-
     return { 
         'name': 'dfs',
         'description': 'Esto es un ejemplo',
