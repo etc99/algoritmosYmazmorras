@@ -1,2 +1,4 @@
-fastapi
-uvicorn
+fastapi==0.95.2
+uvicorn==0.22.0
+pymongo==3.13
+beanie==1.19.2

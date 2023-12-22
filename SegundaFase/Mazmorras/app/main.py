@@ -1,11 +1,30 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
+from pymongo import MongoClient
+from app.core.settings.mongodb import DataBase
+from app.models.algorithms import AlgorithmModel
 
 app = FastAPI()
 
+MONGO_URL = "mongodb://mongodb:27017/"
+MONGO_DB = "mazmorras"
+
+client = MongoClient(MONGO_URL)
+db = client[MONGO_DB]
+
+
 @app.get("/")
 def read_root():
+    # Use the MongoDB database instance
+    # Add your MongoDB-related code here
     return {"Hello": "World"}
 
+# @app.get("/dfs_r")
+# def bfs():
+#     return{
+#         'name': 'dfs_r',
+#         'description': 'Esto es un ejemplo'
+#         'result': self.solver.find_path(self.maze)
+#     }
 
 @app.get("/dfs")
 def dfs():
@@ -115,3 +134,20 @@ def dfs():
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]]
 
             }
+
+
+@app.post("/alg/")
+async def create_new_one(alg: AlgorithmModel):
+    
+    db = client[MONGO_DB]
+    algorithmsCollection = db["test_collection"]
+
+    test =  {
+        "name": "test"
+    }
+
+    new_student = await algorithmsCollection.insert_one(test)
+
+    return new_student
+
+    
