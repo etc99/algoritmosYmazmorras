@@ -27,7 +27,7 @@ public class DownloadMaze : MonoBehaviour
 
     private IEnumerator getMaze()
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get("http://127.0.0.1:8000/dfs"))
+        using (UnityWebRequest webRequest = UnityWebRequest.Get("http://127.0.0.1:8000/prim"))
         {
             yield return webRequest.SendWebRequest();
             if(webRequest.isHttpError || webRequest.isNetworkError) {

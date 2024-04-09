@@ -3,6 +3,7 @@ from app.router import router
 from app.core.settings.db.sqlite import SessionLocal, engine
 from app.schemas import Base
 from app.router import router
+from dungeon_prim import *
 
 Base.metadata.create_all(bind=engine)
 
@@ -11,12 +12,20 @@ app = FastAPI()
 app.include_router(router)
 
 
+@app.get("/hello")
+def read_root():
+     
+     return {"Hello": "World"}
 
-# @app.get("/")
-# def read_root():
-#     # Use the MongoDB database instance
-#     # Add your MongoDB-related code here
-#     return {"Hello": "World"}
+@app.get("/prim")
+def prim():
+     prim_dungeon: DungeonPrim = DungeonPrim(100, 20)
+     
+     return{
+          'name': 'prim',
+          'description': 'This is an example',
+          'result': prim_dungeon 
+     }
 
 # # @app.get("/dfs_r")
 # # def bfs():
