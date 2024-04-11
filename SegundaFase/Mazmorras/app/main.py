@@ -1,9 +1,13 @@
 from fastapi import FastAPI, Depends
 from app.router import router
 from app.core.settings.db.sqlite import SessionLocal, engine
-from app.schemas import Base
+# from app.schemas import Base
 from app.router import router
-from dungeon_prim import *
+from .dungeon_prim import DungeonPrim
+import os
+from app.models.users.user import User, Base
+
+sql_uri: str = f"postgresql://{os.getenv('POSTGRES_USER')}:{os.getenv('POSTGRES_PASSWORD')}@servidor:5432/nombre_basedatos"
 
 Base.metadata.create_all(bind=engine)
 
@@ -21,11 +25,13 @@ def read_root():
 def prim():
      prim_dungeon: DungeonPrim = DungeonPrim(100, 20)
      
-     return{
-          'name': 'prim',
-          'description': 'This is an example',
-          'result': prim_dungeon 
-     }
+     return prim_dungeon.to_dungeon_response()
+
+@app.get("/")
+def prim():
+     prim_dungeon: DungeonPrim = DungeonPrim(100, 20)
+     
+     return prim_dungeon.to_dungeon_response()
 
 # # @app.get("/dfs_r")
 # # def bfs():

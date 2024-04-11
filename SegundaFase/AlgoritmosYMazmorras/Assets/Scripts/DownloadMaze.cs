@@ -11,9 +11,11 @@ public class DownloadMaze : MonoBehaviour
     [System.Serializable]
     public class Maze
     {
-        public string name;
-        public string description;
-        public int[][] result;
+        //public string name;
+        //public string description;
+        public int[][] dungeon_cells;
+        public int[] start_position;
+        public int[] exit_position;
     }
 
     private void Update()
@@ -40,7 +42,7 @@ public class DownloadMaze : MonoBehaviour
                 Maze maze =  JsonConvert.DeserializeObject<Maze>(text);
                 //Debug.Log(maze.name);
                 //Debug.Log(maze.description);
-                Debug.Log(maze.result);
+                Debug.Log(maze.dungeon_cells);
                 _maze = maze;
                 RandomFillMap();
             }
@@ -52,8 +54,8 @@ public class DownloadMaze : MonoBehaviour
     {
         
 
-        var height = _maze.result[0].Length;
-        var width = _maze.result.Length;
+        var height = _maze.dungeon_cells[0].Length;
+        var width = _maze.dungeon_cells.Length;
         
 
         //System.Random pseudoRandom = new System.Random(seed.GetHashCode());
@@ -62,7 +64,7 @@ public class DownloadMaze : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                if (_maze.result[x][y] == 1)
+                if (_maze.dungeon_cells[x][y] == 1)
                 {
 
                     GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -70,7 +72,7 @@ public class DownloadMaze : MonoBehaviour
                     collider.center = cube.transform.position;
                     collider.size = new Vector3(1,1, 1);
                     Renderer renderer = cube.GetComponent<Renderer>();
-                    renderer.material.color = _maze.result[x][y] == 1 ? Color.black : Color.white;
+                    renderer.material.color = _maze.dungeon_cells[x][y] == 1 ? Color.black : Color.white;
                     Instantiate(cube, new Vector3(x, 0, y), Quaternion.AngleAxis(90, Vector3.right));
                 }  
             }

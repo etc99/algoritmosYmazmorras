@@ -1,6 +1,5 @@
 from typing import *
 from .dungeon_base import DungeonBase, CellType, CellPosition, MazeCell
-import networkx as nx
 import random
 
 
