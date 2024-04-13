@@ -7,7 +7,7 @@ public class MenuController : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("DungeonScreen");
     }
 
     public void ExitGame()
