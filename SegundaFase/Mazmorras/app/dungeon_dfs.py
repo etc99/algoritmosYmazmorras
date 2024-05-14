@@ -1,5 +1,4 @@
 from typing import List
-from dungeons.dungeon_base import MazeCell
 from .dungeon_base import *
 from typing import *
 import random

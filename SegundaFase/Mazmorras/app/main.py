@@ -4,6 +4,7 @@ from app.core.settings.db.sqlite import SessionLocal, engine
 # from app.schemas import Base
 from app.router import router
 from .dungeon_prim import DungeonPrim
+from .dungeon_dfs import DungeonDFS
 import os
 from app.models.users.user import User, Base
 
@@ -26,6 +27,13 @@ def prim():
      prim_dungeon: DungeonPrim = DungeonPrim(100, 20)
      
      return prim_dungeon.to_dungeon_response()
+
+@app.get("/dfs")
+def dfs():
+     dfs_dungeon: DungeonDFS = DungeonDFS(100,20)
+
+     return dfs_dungeon.to_dungeon_response()
+
 
 @app.get("/")
 def prim():
