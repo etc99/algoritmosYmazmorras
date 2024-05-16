@@ -6,6 +6,7 @@ from app.router import router
 from .dungeon_prim import DungeonPrim
 from .dungeon_dfs import DungeonDFS
 from .dungeon_cellular import DungeonCellular
+from .dungeon_random_walker import DungeonRandomWalker
 import os
 from app.models.users.user import User, Base
 
@@ -41,6 +42,11 @@ def cellular():
 
      return cellular_dungeon.to_dungeon_response()
 
+@app.get("/walker")
+def cellular():
+     walker_dungeon: DungeonRandomWalker = DungeonRandomWalker(100,20)
+
+     return walker_dungeon.to_dungeon_response()
 
 @app.get("/")
 def prim():
