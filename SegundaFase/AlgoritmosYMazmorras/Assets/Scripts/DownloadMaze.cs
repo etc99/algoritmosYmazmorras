@@ -7,46 +7,83 @@ using Newtonsoft.Json;
 public class DownloadMaze : MonoBehaviour
 {
     [SerializeField] private Maze _maze;
-    
+    //variables de configuración
+    //establecer una variable
+    private string baseUrl = "http://127.0.0.1:8000/dungeon/complete";
+    private string newEndpoint = null;
+
     [System.Serializable]
     public class Maze
     {
         //public string name;
         //public string description;
+        /*public string id;
+        public string algorithm;
+        public string seed;
         public int[][] dungeon_cells;
         public int[] start_position;
-        public int[] exit_position;
+        public int[] exit_position;*/
+        public int[][] maze;
     }
-
+    private void Start()
+    {
+        if(PlayerPrefs.HasKey("Endpoint"))
+        {
+            string receivedEndpoint = PlayerPrefs.GetString("Endpoint");
+            newEndpoint = receivedEndpoint;
+        }
+        else
+        {
+            Debug.Log("No hay endpoint en playerPrefs");
+        }
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Getting!");
-            StartCoroutine(getMaze());
-        }
-    }
-
-    private IEnumerator getMaze()
-    {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get("http://127.0.0.1:8000/prim"))
-        {
-            yield return webRequest.SendWebRequest();
-            if(webRequest.isHttpError || webRequest.isNetworkError) {
-                Debug.Log("ERROR: No se conecto!");
+            if(newEndpoint == null)
+            {
+                Debug.Log("Endpoint vacio");
             }
             else
             {
-                Debug.Log("Ok");
-                var text = webRequest.downloadHandler.text;
-                Maze maze =  JsonConvert.DeserializeObject<Maze>(text);
-                //Debug.Log(maze.name);
-                //Debug.Log(maze.description);
-                Debug.Log(maze.dungeon_cells);
-                _maze = maze;
-                RandomFillMap();
+                Debug.Log(newEndpoint);
+                StartCoroutine(getMaze(newEndpoint));
             }
-        } // INSTANCIACION DE USAR Y TIRAR
+            
+        }
+    }
+    
+    private IEnumerator getMaze(string endpoint)
+    {
+        string url = baseUrl + endpoint;
+        url += "?height=100&width=100";
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
+        {
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.result == UnityWebRequest.Result.ConnectionError ||
+                webRequest.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.LogError("Error: " + webRequest.error);
+            }
+            else
+            {
+                Debug.Log("Response received");
+                var text = webRequest.downloadHandler.text;
+                try{
+                    Maze maze = JsonConvert.DeserializeObject<Maze>(text);
+                    _maze = maze;
+                    RandomFillMap();
+                }
+                catch (JsonException jsonEx)
+                {
+                    Debug.LogError("JSON Error: " + jsonEx.Message);
+                }
+                
+            }
+        } 
 
     }
 
@@ -54,8 +91,8 @@ public class DownloadMaze : MonoBehaviour
     {
         
 
-        var height = _maze.dungeon_cells[0].Length;
-        var width = _maze.dungeon_cells.Length;
+        var height = _maze.maze[0].Length;
+        var width = _maze.maze.Length;
         
 
         //System.Random pseudoRandom = new System.Random(seed.GetHashCode());
@@ -64,7 +101,7 @@ public class DownloadMaze : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                if (_maze.dungeon_cells[x][y] == 1)
+                if (_maze.maze[x][y] == 1)
                 {
 
                     GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -72,7 +109,7 @@ public class DownloadMaze : MonoBehaviour
                     collider.center = cube.transform.position;
                     collider.size = new Vector3(1,1, 1);
                     Renderer renderer = cube.GetComponent<Renderer>();
-                    renderer.material.color = _maze.dungeon_cells[x][y] == 1 ? Color.black : Color.white;
+                    renderer.material.color = _maze.maze[x][y] == 1 ? Color.black : Color.white;
                     Instantiate(cube, new Vector3(x, 0, y), Quaternion.AngleAxis(90, Vector3.right));
                 }  
             }

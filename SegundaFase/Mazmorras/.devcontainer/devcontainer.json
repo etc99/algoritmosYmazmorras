@@ -1,19 +1,25 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/postgres
 {
-	"name": "Python 3 & PostgreSQL",
+	"name": "Python 3 & Mongo",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"customizations": {
 		"vscode": {
 			"extensions": [
+				"ms-python.autopep8",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.intellicode-api-usage-examples",
+				"ms-python.isort",
+				"ms-vsliveshare.vsliveshare",
+				"mongodb.mongodb-vscode",
+				"christian-kohler.path-intellisense",
+				"ms-python.vscode-pylance",
 				"ms-python.python",
 				"ms-python.debugpy",
-				"njpwerner.autodocstring",
-				"ms-python.vscode-pylance",
-				"RobbOwen.synthwave-vscode",
-				"VisualStudioExptTeam.vscodeintellicode"
+				"ahmadawais.shades-of-purple",
+				"MS-CEINTL.vscode-language-pack-es"
 			]
 		}
 	}

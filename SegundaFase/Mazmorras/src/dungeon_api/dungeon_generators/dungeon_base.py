@@ -2,16 +2,14 @@
 from typing import *
 from abc import ABC, abstractmethod
 from enum import Enum
-from .dungeon_response import DungeonResponse, DungeonCellType
+import random
 
 CellPosition = Tuple[int, int]
 
 
 class CellType(Enum):
+    WALL = 0
     PATH = 1
-    WALL = 2
-    START = 3
-    EXIT = 4
 
 
 class MazeCell:
@@ -20,15 +18,11 @@ class MazeCell:
         self.row: int = row
         self.column: int = column
         self.state: CellType = state
-        self.start: MazeCell
-        self.exit: MazeCell
 
     def __str__(self) -> str:
         cell_type_mapping: Dict[CellType, str] = {
             CellType.PATH: ".",
-            CellType.WALL: '▓',
-            CellType.START: "O",
-            CellType.EXIT: "X"
+            CellType.WALL: '▓'
         }
 
         return cell_type_mapping[self.state]
@@ -40,7 +34,7 @@ class MazeCell:
         self.state = new_state
 
     def __repr__(self) -> str:
-        return f"[{self.row}-{self.column}]:{self.state.name}"
+        return self.state.value
 
     def __hash__(self) -> int:
         return hash((self.row, self.column))
@@ -48,22 +42,23 @@ class MazeCell:
 
 class DungeonBase(ABC):
 
-    def __init__(self, width: int, height: int) -> None:
-        self.width: int = width
-        self.height: int = height
-
-        maze_list: List[List[MazeCell]] = []
-
-        for i in range(self.height):
-            new_row: List[MazeCell] = []
-            for j in range(self.width):
-                new_row.append(MazeCell(i, j))
-            maze_list.append(new_row)
-        self.grid: List[List[MazeCell]] = maze_list
+    def __init__(self, **kwargs) -> None:
+        self.grid: List[List[MazeCell]] = []
 
     @abstractmethod
     def _create_dungeon(self) -> None:
         pass
+
+
+    @property
+    @abstractmethod
+    def height(self) -> int:
+        ...
+
+    @property
+    @abstractmethod
+    def width(self) -> int:
+        ...
 
     def get_neighbors(self, cell: MazeCell, distance: int = 1) -> List[MazeCell]:
 
@@ -91,7 +86,7 @@ class DungeonBase(ABC):
         return self.grid[position[0]][position[1]]
 
     def inside_map(self, position: CellPosition) -> bool:
-        return (0 <= position[0] < self.height) and (0 <= position[1] < self.width)
+        return (0 <= position[0] < self._height) and (0 <= position[1] < self._width)
 
     def __str__(self) -> str:
         dungeon_str: str = ''
@@ -102,21 +97,35 @@ class DungeonBase(ABC):
             dungeon_str += "\n"
 
         return dungeon_str
+    
+    def serialize_grid(self):
 
-    def to_dungeon_response(self) -> DungeonResponse:
+        return [[ cell.state.value for cell in row] for row in self.grid]
+        
 
-        dungeon_matrix: List[List[DungeonCellType]] = []
-        # Iteramos sobre la mazmorra
-        for row in self.grid:
-            row_list: List[DungeonCellType] = []
-            for cell in row:
-                if cell.state == CellType.WALL:
-                    row_list.append(DungeonCellType.WALL)
-                else:
-                    row_list.append(DungeonCellType.PATH)
-            dungeon_matrix.append(row_list)
+class SizeableDungeon(DungeonBase):
 
-        return DungeonResponse(dungeon_cells=dungeon_matrix,
-                                start_position=self.start.get_position() if self.start else None,
-                                exit_position=self.exit.get_position() if self.exit else None)
+    def __init__(self, width: int, height: int, seed: int | None = None, **kwargs) -> None:
+        self._width: int = int(width)
+        self._height: int = int(height)
+        self.seed: int = int(seed) if seed else random.randint(0,1000)
+        self.steps: List[CellPosition] = []
+        random.seed(self.seed)
 
+        maze_list: List[List[MazeCell]] = []
+
+        for i in range(self._height):
+            new_row: List[MazeCell] = []
+            for j in range(self._width):
+                new_row.append(MazeCell(i, j))
+            maze_list.append(new_row)
+        self.grid = maze_list
+        self._create_dungeon()
+
+    @property
+    def height(self) -> int:
+        return self._height
+    
+    @property
+    def width(self) -> int:
+        return self._width

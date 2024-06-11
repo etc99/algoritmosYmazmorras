@@ -5,6 +5,12 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
+    environment:
+      MONGO_USER: "root"
+      MONGO_PASS: "example"
+      MONGO_PORT: "27017"
+      MONGO_HOST: "db"
+      APP_PORT: "8001"
 
     volumes:
       - ../..:/workspaces:cached
@@ -13,23 +19,23 @@ services:
     command: sleep infinity
 
     # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
-    network_mode: service:db
+    links: 
+      - "db:db"
 
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   db:
-    image: postgres:latest
+    image: mongo:latest
     restart: unless-stopped
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
-      POSTGRES_PASSWORD: postgres
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "example"
+    volumes:
+          - mongodb_data_container:/data/db
+    ports:
+      - 27017:27017
 
-    # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
-    # (Adding the "ports" property to this file will not forward from a Codespace.)
 
 volumes:
-  postgres-data:
+  mongodb_data_container:
