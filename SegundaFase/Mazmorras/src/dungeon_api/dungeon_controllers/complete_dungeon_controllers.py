@@ -12,7 +12,7 @@ async def obtain_complete_dungeon(dungeon_type: type, seed: Optional[int] = None
         if stored_dungeon:
             return stored_dungeon
 
-    dungeon = dungeon_type(seed=seed, **kwargs)
+    dungeon = dungeon_type(seed=seed, **kwargs) # Generar mazmorra
     
     generated_dungeon = CompleteDungeon(algorithm=dungeon_type.__name__, seed=dungeon.seed, parameters=kwargs, maze=dungeon.serialize_grid())
     await generated_dungeon.insert()

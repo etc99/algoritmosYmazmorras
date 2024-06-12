@@ -7,10 +7,7 @@ public class MenuController : MonoBehaviour
 {
     public void StartGame()
     {
-        string endpoint = "\\" + "prim";
-        PlayerPrefs.SetString("Endpoint", endpoint);
-        PlayerPrefs.Save();
-        SceneManager.LoadScene("DungeonScreen");
+        SceneManager.LoadScene("SelectMenu");
     }
 
     public void PrimButton()
@@ -19,6 +16,27 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetString("Endpoint", endpoint);
         PlayerPrefs.Save();
         SceneManager.LoadScene("DungeonScreen");
+    }
+
+    public void KruskalButton()
+    {
+        string endpoint = "\\" + "kruskal";
+        PlayerPrefs.SetString("Endpoint", endpoint);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("DungeonScreen");
+    }
+
+    public void DfsButton()
+    {
+        string endpoint = "\\" + "dfs";
+        PlayerPrefs.SetString("Endpoint", endpoint);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("DungeonScreen");
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainScreen");
     }
 
     public void ExitGame()

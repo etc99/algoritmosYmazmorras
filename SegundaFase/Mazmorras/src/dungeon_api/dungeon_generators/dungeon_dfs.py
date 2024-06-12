@@ -45,5 +45,4 @@ class DungeonDFS(SizeableDungeon):
         if row_origin == row_target:
             return self.grid[row_origin][max(col_origin, col_target) - 1]
         else:
-            print(row_origin, row_target)
             return self.grid[max(row_origin, row_target) - 1][col_origin]

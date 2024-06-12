@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: bd181033c01f8ed469d37ec59c8cbaee
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - I hate Comic Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3227c43bb5e892141814d11a487f82b6, type: 3}
+  - {fileID: 12800000, guid: 951e2419661004b429f6c0811a3c8b48, type: 3}
+  - {fileID: 12800000, guid: dab5cc94a999e6544b9b5f4294a4879f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

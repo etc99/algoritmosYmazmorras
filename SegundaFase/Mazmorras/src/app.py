@@ -42,6 +42,12 @@ async def get_complete_dungeon(request: Request, algorithm: AvailableAlgorithms,
 
     return (await obtain_complete_dungeon(dungeon_type=algorithms_mapping[algorithm], **request.query_params)).serialize()
 
+import sys
+
+# Establece un nuevo límite para la recursión
+nuevo_limite = 999999999
+sys.setrecursionlimit(nuevo_limite)
+
 
 # @app.get("/dungeon/iterative/{algorithm}")
 # async def get_iterative_dungeon(request: Request, algorithm: AvailableAlgorithms,  height: int, width: int, seed: int | None = None):
