@@ -38,7 +38,10 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene("MainScreen");
     }
-
+    public void BackToSelectionMenu()
+    {
+        SceneManager.LoadScene("SelectMenu");
+    }
     public void ExitGame()
     {
         Application.Quit();
