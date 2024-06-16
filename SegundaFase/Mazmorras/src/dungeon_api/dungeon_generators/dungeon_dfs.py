@@ -8,6 +8,7 @@ class DungeonDFS(SizeableDungeon):
 
     def __init__(self, width: int, height: int, seed: int | None = None) -> None:
         super().__init__(width, height, seed)
+        # sys.setrecursionlimit(999999999999999)
 
     def _create_dungeon(self) -> None:
         self.start: MazeCell = self.get_cell(

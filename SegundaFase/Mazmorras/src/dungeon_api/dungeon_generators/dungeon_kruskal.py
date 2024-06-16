@@ -1,5 +1,7 @@
-from dungeon_base import *
+from .dungeon_base import *
 import random
+
+from itertools import product
 
 
 class UnionFind:
@@ -40,37 +42,32 @@ class DungeonKruskal(SizeableDungeon):
 
     def _create_dungeon(self) -> None:
         flattened_maze: List[MazeCell] = []
-        for cells in self.grid:
-            flattened_maze.extend(cells)
+        edges: List[Tuple[MazeCell, MazeCell]] = []
+        for row, column in product(range(1,self.height, 2), range(1,self.width, 2)):
+            flattened_maze.append(self.get_cell((row,column)))
+
+        for row in range(1, self.height - 1 , 2):
+            for column in range(1, self.width - 1, 2):
+                edges.append((self.get_cell((row,column)), self.get_cell((row + 2,column))))
+                edges.append((self.get_cell((row,column)), self.get_cell((row ,column + 2))))
+
+        for column in range(1, self.width - 1 , 2):
+            edges.append((self.get_cell(( self.height - 1, column)), self.get_cell(( self.height - 1,  column +2 ))))
+
 
         union_find: UnionFind = UnionFind(flattened_maze)
-        random.shuffle(flattened_maze)
+        random.shuffle(edges)
 
-        while flattened_maze:
+        while edges:
+            A,B = edges.pop()
 
-            cell: MazeCell = flattened_maze.pop()
+            if union_find.find(A) == union_find.find(B):
+                continue
 
-
-            neighs: List[MazeCell] = self.get_neighbors(cell, distance=2)
-
-            connect: MazeCell = random.choice(neighs)
-
-            if union_find.find(cell) != union_find.find(connect):
-                passage: MazeCell = self.get_cell_between(cell, connect)
-
-                if passage.state == CellType.PATH:
-                    continue
-                union_find.union(passage,cell)
-                union_find.union(cell, connect )
-                passage.change_state(CellType.PATH)
-                cell.change_state(CellType.PATH)
-                connect.change_state(CellType.PATH)
-                if passage in flattened_maze:
-                    flattened_maze.remove(passage)
-                if connect in flattened_maze:
-                    flattened_maze.remove(connect)
-
-
+            self.get_cell_between(A,B).change_state(CellType.PATH)
+            A.change_state(CellType.PATH)
+            B.change_state(CellType.PATH)
+            union_find.union(A,B)
 
 
     
@@ -83,3 +80,4 @@ class DungeonKruskal(SizeableDungeon):
             return self.grid[row_origin][max(col_origin, col_target) - 1]
         else:
             return self.grid[max(row_origin, row_target) - 1][col_origin]
+        

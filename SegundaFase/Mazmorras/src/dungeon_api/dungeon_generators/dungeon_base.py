@@ -34,10 +34,13 @@ class MazeCell:
         self.state = new_state
 
     def __repr__(self) -> str:
-        return self.state.value
+        return f"[{self.row}-{self.column}:{self.state.value}]"
 
     def __hash__(self) -> int:
         return hash((self.row, self.column))
+    
+    def __eq__(self, value: object) -> bool:
+        return all((self.row == value.row, self.column == value.column, self.state == value.state))
 
 
 class DungeonBase(ABC):
@@ -49,16 +52,6 @@ class DungeonBase(ABC):
     def _create_dungeon(self) -> None:
         pass
 
-
-    @property
-    @abstractmethod
-    def height(self) -> int:
-        ...
-
-    @property
-    @abstractmethod
-    def width(self) -> int:
-        ...
 
     def get_neighbors(self, cell: MazeCell, distance: int = 1) -> List[MazeCell]:
 
@@ -91,10 +84,10 @@ class DungeonBase(ABC):
     def __str__(self) -> str:
         dungeon_str: str = ''
 
-        for row in self.grid:
-            for cell in row:
+        for i,row in enumerate(self.grid):
+            for  cell in row:
                 dungeon_str += str(cell)
-            dungeon_str += "\n"
+            dungeon_str += str(i) + "\n"
 
         return dungeon_str
     
