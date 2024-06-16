@@ -1,4 +1,4 @@
-### Algoritmos y Mazmorras
+## Algoritmos y Mazmorras
 
 
 ## Descripción
