@@ -33,6 +33,41 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.Save();
         SceneManager.LoadScene("DungeonScreen");
     }
+    public void CellularButton()
+    {
+        string endpoint = "\\" + "cellular";
+        PlayerPrefs.SetString("Endpoint", endpoint);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("DungeonScreen");
+    }
+    public void BinaryButton()
+    {
+        string endpoint = "\\" + "binary";
+        PlayerPrefs.SetString("Endpoint", endpoint);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("DungeonScreen");
+    }
+    public void EllerButton()
+    {
+        string endpoint = "\\" + "eller";
+        PlayerPrefs.SetString("Endpoint", endpoint);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("DungeonScreen");
+    }
+    public void AldousButton()
+    {
+        string endpoint = "\\" + "aldous-broder";
+        PlayerPrefs.SetString("Endpoint", endpoint);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("DungeonScreen");
+    }
+    public void TesselationButton()
+    {
+        string endpoint = "\\" + "tesselation";
+        PlayerPrefs.SetString("Endpoint", endpoint);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("DungeonScreen");
+    }
 
     public void BackToMenu()
     {
