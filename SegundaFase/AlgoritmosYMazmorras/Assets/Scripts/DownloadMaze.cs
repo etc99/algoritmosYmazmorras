@@ -9,7 +9,7 @@ public class DownloadMaze : MonoBehaviour
     [SerializeField] private Maze _maze;
     //variables de configuración
     //establecer una variable
-    private string baseUrl = "http://127.0.0.1:8000/dungeon/complete";
+    private string baseUrl = "http://127.0.0.1:8000/dungeon";
     private string newEndpoint = null;
 
     [System.Serializable]
