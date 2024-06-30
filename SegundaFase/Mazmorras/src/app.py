@@ -37,19 +37,19 @@ AvailableAlgorithms = Literal["prim", "dfs", "cellular"]
 
 
 @app.get("/dungeon/prim")
-async def get_prim_dungeon(request: Request, height: int = Query(), width: int = Query(), seed: int | None = Query(None)):
+async def get_prim_dungeon(request: Request, height: int = Query(ge=5, le=100), width: int = Query(ge=5, le=100), seed: int | None = Query(None)):
     return (await obtain_dungeon(DungeonPrim, seed, height=height, width=width)).model_dump()
 
 
 @app.get("/dungeon/dfs")
-async def get_dfs_dungeon(request: Request, height: int = Query(), width: int = Query(), seed: int | None = Query(None)):
+async def get_dfs_dungeon(request: Request, height: int = Query(ge=5, le=100), width: int = Query(ge=5, le=100), seed: int | None = Query(None)):
     return (await obtain_dungeon(DungeonDFS, seed, height=height, width=width)).model_dump()
 
 
 @app.get("/dungeon/cellular")
 async def get_cellular_dungeon(request: Request,
-                               height: int = Query(),
-                               width: int = Query(),
+                               height: int = Query(ge=5, le=100),
+                               width: int = Query(ge=5, le=100),
                                seed: int | None = Query(None),
                                iterations: int | None = Query(None, gt=10, le=10_000)):
     return (await obtain_dungeon(DungeonCellular,
@@ -59,21 +59,21 @@ async def get_cellular_dungeon(request: Request,
                                           max_iterations=iterations)).model_dump()
 
 @app.get("/dungeon/kruskal")
-async def get_kruskal_dungeon(request: Request, height: int = Query(), width: int = Query(), seed: int | None = Query(None)):
+async def get_kruskal_dungeon(request: Request, height: int = Query(ge=5, le=100), width: int = Query(ge=5, le=100), seed: int | None = Query(None)):
     return (await obtain_dungeon(DungeonKruskal, seed, height=height, width=width)).model_dump()
 
 @app.get("/dungeon/binary")
-async def get_binary_tree_dungeon(request: Request, height: int = Query(), width: int = Query(), seed: int | None = Query(None)):
+async def get_binary_tree_dungeon(request: Request, height: int = Query(ge=5, le=100), width: int = Query(ge=5, le=100), seed: int | None = Query(None)):
     return (await obtain_dungeon(DungeonBinaryTree, seed, height=height, width=width)).model_dump()
 
 @app.get("/dungeon/eller")
-async def get_eller_dungeon(request: Request, height: int = Query(), width: int = Query(), seed: int | None = Query(None)):
+async def get_eller_dungeon(request: Request, height: int = Query(ge=5, le=100), width: int = Query(ge=5, le=100), seed: int | None = Query(None)):
     return (await obtain_dungeon(DungeonEller, seed, height=height, width=width)).model_dump()
 
 @app.get("/dungeon/aldous-broder")
-async def get_aldous_broder_dungeon(request: Request, height: int = Query(), width: int = Query(), seed: int | None = Query(None)):
+async def get_aldous_broder_dungeon(request: Request, height: int = Query(ge=5, le=100), width: int = Query(ge=5, le=100), seed: int | None = Query(None)):
     return (await obtain_dungeon(DungeonAldousBroder, seed, height=height, width=width)).model_dump()
 
 @app.get("/dungeon/tesselation")
-async def get_tesselation_dungeon(request: Request, iterations: int = Query(4, lt=10, gt=1), seed: int | None = Query(None)):
+async def get_tesselation_dungeon(request: Request, iterations: int = Query(4, lt=8, gt=1), seed: int | None = Query(None)):
     return (await obtain_dungeon(DungeonTesselation, seed, iters=iterations)).model_dump()

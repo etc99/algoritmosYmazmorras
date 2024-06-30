@@ -12,7 +12,7 @@ public class MenuController : MonoBehaviour
 
     public void PrimButton()
     {
-        string endpoint = "\\" + "prim";
+        string endpoint = "prim";
         PlayerPrefs.SetString("Endpoint", endpoint);
         PlayerPrefs.Save();
         SceneManager.LoadScene("DungeonScreen");
@@ -20,7 +20,7 @@ public class MenuController : MonoBehaviour
 
     public void KruskalButton()
     {
-        string endpoint = "\\" + "kruskal";
+        string endpoint = "kruskal";
         PlayerPrefs.SetString("Endpoint", endpoint);
         PlayerPrefs.Save();
         SceneManager.LoadScene("DungeonScreen");
@@ -28,42 +28,42 @@ public class MenuController : MonoBehaviour
 
     public void DfsButton()
     {
-        string endpoint = "\\" + "dfs";
+        string endpoint =  "dfs";
         PlayerPrefs.SetString("Endpoint", endpoint);
         PlayerPrefs.Save();
         SceneManager.LoadScene("DungeonScreen");
     }
     public void CellularButton()
     {
-        string endpoint = "\\" + "cellular";
+        string endpoint =  "cellular";
         PlayerPrefs.SetString("Endpoint", endpoint);
         PlayerPrefs.Save();
         SceneManager.LoadScene("DungeonScreen");
     }
     public void BinaryButton()
     {
-        string endpoint = "\\" + "binary";
+        string endpoint =  "binary";
         PlayerPrefs.SetString("Endpoint", endpoint);
         PlayerPrefs.Save();
         SceneManager.LoadScene("DungeonScreen");
     }
     public void EllerButton()
     {
-        string endpoint = "\\" + "eller";
+        string endpoint = "eller";
         PlayerPrefs.SetString("Endpoint", endpoint);
         PlayerPrefs.Save();
         SceneManager.LoadScene("DungeonScreen");
     }
     public void AldousButton()
     {
-        string endpoint = "\\" + "aldous-broder";
+        string endpoint =  "aldous-broder";
         PlayerPrefs.SetString("Endpoint", endpoint);
         PlayerPrefs.Save();
         SceneManager.LoadScene("DungeonScreen");
     }
     public void TesselationButton()
     {
-        string endpoint = "\\" + "tesselation";
+        string endpoint =  "tesselation";
         PlayerPrefs.SetString("Endpoint", endpoint);
         PlayerPrefs.Save();
         SceneManager.LoadScene("DungeonScreen");
