@@ -10,7 +10,7 @@ services:
       MONGO_PASS: "example"
       MONGO_PORT: "27017"
       MONGO_HOST: "db"
-      APP_PORT: "8001"
+      APP_PORT: "8000"
 
     volumes:
       - ../..:/workspaces:cached
