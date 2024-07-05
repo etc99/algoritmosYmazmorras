@@ -30,8 +30,8 @@ En este proyecto se han utilizado varias adaptaciones de algoritmos
 ## Tecnologías Utilizadas
 
 - **Unity**: Versión 2021.3.25f1
-- **Lenguaje de Programación**: C# y Python
-- **Entorno de Desarrollo**: Visual Studio 2019, Visual Studio Code
+- **Lenguajes de Programación**: C# y Python
+- **Entornos de Desarrollo**: Visual Studio 2019, Visual Studio Code
 
 ## Instalación y Ejecución
 
