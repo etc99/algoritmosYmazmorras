@@ -17,6 +17,7 @@ En este trabajo de fin de grado, se van a explorar distintos algoritmos para pod
 ![C#](https://img.shields.io/badge/C_sharp-87F5F5?style=for-the-badge&logo=c&logoColor=black&labelColor=D8D8D8)
 ![Unity](https://img.shields.io/badge/Unity-87F5F5?style=for-the-badge&logo=unity&logoColor=black&labelColor=D8D8D8)
 ![Videojuegos](https://img.shields.io/badge/Videojuegos-87F5F5?style=for-the-badge&logo=unity&logoColor=black&labelColor=D8D8D8)
+![C#](https://img.shields.io/badge/python-87F5F5?style=for-the-badge&logo=P&logoColor=black&labelColor=D8D8D8)
 
 
 ## Características
