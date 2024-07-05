@@ -1,15 +1,22 @@
-## Algoritmos y Mazmorras
+# ***Algoritmos y Mazmorras***
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## Descripción
-La generación procedimental, es una técnica de generación de contenido que hace uso de algoritmos para obtener mapas, texturas, niveles, historias...
-En este trabajo de final de grado se va a realizar un videojuego que utilice esta técnica y se van a explorar varios algoritmos para poder ver sus resultados y tiempos de ejecución.
 
++ ## ***Autora:***
+    + Elsa Tolín Carrasco
++ ## ***Tutores:***
+    + Jesús Alonso Abad
+    + José Manuel Galán Ordax
+
+## Descripción
+La generación procedimental, es la técnica que a través de algoritmos, permite crear contenido para videojuegos de forma autónoma o de la mano de un diseñador. 
+
+En este trabajo de fin de grado, se van a explorar distintos algoritmos para poder probar esta técnica, de forma que se obtengan mapas navegables como lo serían en un videojuego. Estos mapas van a tener la forma de un laberinto y van a ser generados en un servidor, replicando la arquitectura cliente-servidor que se tendría en un estudio de videojuegos real.
 ## Key words
 
 ![C#](https://img.shields.io/badge/C_sharp-87F5F5?style=for-the-badge&logo=c&logoColor=black&labelColor=D8D8D8)
 ![Unity](https://img.shields.io/badge/Unity-87F5F5?style=for-the-badge&logo=unity&logoColor=black&labelColor=D8D8D8)
-![VideoGames](https://img.shields.io/badge/Video_Games-87F5F5?style=for-the-badge&logo=unity&logoColor=black&labelColor=D8D8D8)
+![Videojuegos](https://img.shields.io/badge/Videojuegos-87F5F5?style=for-the-badge&logo=unity&logoColor=black&labelColor=D8D8D8)
 
 
 ## Características
