@@ -1,0 +1,133 @@
+\capitulo{4}{Técnicas y herramientas}
+
+En la presente sección se describen las principales técnicas y herramientas con los que se ha trabajado a lo largo del proyecto.
+
+\section{Gestión de proyecto}
+
+\subsection{Overleaf}
+La herramienta principal para desarrollar la memoria de este trabajo ha sido Overleaf~\cite{overleaf}. Esta herramienta es un entorno que permite la creación de documentos TeX/LaTeX.
+Las principales ventajas de Overleaf son su facilidad de uso y la opción colaborativa, permitiendo añadir a más personas para poder colaborar con el documento.
+La herramienta permite el control de versiones de los documentos, permitiendo ver el progreso del desarrollo y haciendo posible volver a versiones anteriores.
+
+
+\subsection{Scrum}
+Scrum~\cite{scrum} es un marco de trabajo ágil que se utiliza para gestionar y realizar proyectos de mayor complejidad.
+Se basa en los principios de desarrollo iterativo e incremental, de forma que proporciona un enfoque estructurado y flexible para el desarrollo de productos. Este enfoque es muy eficiente en la gestión de proyectos de software ya que permite al equipo adaptarse rápidamente a los cambios y conseguir una mayor retroalimentación.
+
+Para este proyecto estas iteraciones en las que se basa Scrum (Sprints) han sido de tres a cuatro semanas, puesto que ha sido un proyecto que se ha extendido en el tiempo. Cada final de sprint se realizaba una reunión sobre los progresos y bloqueos que han podido surgir. De esta forma se ha ido iterando a lo largo del tiempo.
+
+\subsection{Jira}
+Jira~\cite{jira} es una herramienta de gestión de proyectos y seguimiento de incidencias desarrollada por Atlassian. Es muy popular en la industria del software para llevar una planificación y gestión de proyectos de desarrollo. Es utilizada para metodologías de trabajo como Agile, Scrum y Kanban. 
+
+Para este proyecto ha sido especialmente útil, ya que al usar Scrum, permite seguir el flujo del trabajo y ver en qué punto se encontraba el proyecto con claridad.
+
+\subsection{Git}
+Git~\cite{git} es un sistema de control de versiones distribuido, está diseñado para gestionar proyectos con mucho historial y para poder mantener un control de versiones.
+Para este proyecto se eligió git ya que es el más popular. Git permite usar la gestión de ramas, es crucial para trabajos en equipo, pero para este proyecto sólo se ha usado la rama principal. La gran ventaja de usar git es que no se necesita conexión constante a internet para trabajar, simplemente con la copia del repositorio en la máquina se pueden subir los cambios cuando sea necesario. 
+Git ha sido imprescindible en el desarrollo de este proyecto, facilitando el proceso enormemente.
+
+\subsection{Git Bash}
+Git Bash~\cite{gitbash} es una interfaz de línea de comandos que emula un entorno de terminal bash en Windows. Con esta herramienta se pueden usar comandos de Git y Unix para gestionar repositorios de git. 
+También tiene soporte para scripts de bash, permitiendo automatizar trabajo desde la terminal como si se tratase de una terminal de Unix. 
+Para el desarrollo de este proyecto fue fundamental ya que se utilizó para gestionar el repositorio, y es igual de fácil de usar que una terminal de un sistema Unix.
+
+
+\section{Lenguajes de programación}
+\subsection{Python}
+Python~\cite{python} es un lenguaje de programación de alto nivel, destaca por ser simple y legible. Es muy utilizado para el desarrollo de aplicaciones gracias a su compatibilidad con diversidad de frameworks. También cuenta con una gran cantidad de bibliotecas para poder trabajar en diferentes dominios, ya sea para desarrollar los algoritmos de generación procedimental, como para desarrollar el framework.
+
+\subsection{C\#}
+C\#~\cite{csharp} es un lenguaje de programación orientado a objetos, desarrollado por Microsoft como parte de su plataforma .NET. Unity utiliza este como el lenguaje principal para scripting, permitiendo así el programar el control de los objetos, el manejo de eventos y la interacción del usuario.
+Este lenguaje es conocido por tener una sintaxis clara y gracias a su gran comunidad de usuarios se dispone de mucha documentación, haciendo la curva de aprendizaje mucho más suave.
+
+
+\section{Bases de datos}
+
+\subsection{MongoDB}
+MongoDB~\cite{mongodb} es una base de datos NoSQL orientada a documentos. Este tipo de base de datos hace que sea más fácil almacenar datos de forma flexible puesto que es capaz de manejar grandes volúmenes de datos, además de que permite la escalabilidad de la base de datos.
+
+Uno de los principales motivos por los que se eligió esta base de datos es por su \textbf{modelo de datos flexible}, MongoDB tiene capacidad para manejar datos no estructurados, y la flexibilidad en el esquema hace que sea posible adaptarse a los cambios de requisitos sin tener que modificar la estructura de la base de datos. Además se integra muy bien con Docker, haciendo mucho más fácil el despliegue y la gestión de las bases de datos. Para integrar MongoDB con FastApi se hace uso de dos bibliotecas de Python, Beanie y Pydantic, de los que se hablará en más profundidad en el siguiente apartado.
+
+También, cabe destacar que al  ser muy popular dentro de la comunidad, la documentación es muy completa, esto fue decisivo a la hora de elegir esta base de datos, ya que hace que el aprendizaje y la resolución de errores sea mucho más sencilla.
+
+\section{Bibliotecas}
+
+\subsection{Beanie}
+Beanie~\cite{beanie} es una biblioteca para Python diseñada para trabajar con bases de datos MongoDB en un estilo orientado a documentos, es decir, es un \textbf{ODM (Object-Document Mapper)}. Esto significa que va a utilizar clases y objetos en lugar de consultas SQL, facilitando la manipulación de datos de forma que es más coherente con la programación orientada a objetos porque proporciona una interfaz de alto nivel para interactuar con la base de datos. 
+
+Usar un ODM en este proyecto permite que los esquemas de datos sean flexibles, haciendo el almacenamiento mucho más sencillo.
+
+La integración con FastApi de MongoDB fue posible gracias a \textbf{Beanie}, esta biblioteca facilita la integración ya que usa modelos de datos definidos con Pydantic. 
+
+\subsection{Pydantic}
+Pytdantic~\cite{pydantic} es una biblioteca para Python que hace más fácil la validación y conversión de datos mediante el uso de anotaciones de tipos.
+Pydantic define modelos de datos, en este caso para crear clases modelos, esto permite una validación y conversión de datos a tipos específicos de Python, haciendo que los datos tengan una mejor consistencia y calidad al almacenarse. También se usa Pydantic con FastApi, haciendo que la validación y conversión de datos sea robusta y coherente entre el framework web y la base de datos.
+
+\section{API}
+
+\subsection{FastAPI}
+FastAPI~\cite{fastapi} es un framework web de alto rendimiento para construir APIs en Python 3.7+, basado en estándares como OpenApi y JSON Schema. 
+
+FastAPI era la mejor elección para usarlo como framework por diversos motivos. Ofrece un \textbf{rendimiento muy alto}, haciéndolo la mejor elección en una aplicación en la que se necesita una buena capacidad de respuesta.
+También, FastApi permite desarrollar de forma más \textbf{rápida y sencilla}, sobre todo por la generación de documentación que ofrece, que permite desarrollar APIs más rápido y con menos errores.
+Además, facilita mucho la generación de la documentación según la especificación de OpenAPI.
+
+Por estos motivos es la mejor elección para desarrollar APIs eficientes y escalables, hace mucho más fácil el desarrollo y mantenimiento del back-end de una aplicación.
+
+\subsection{Uvicorn}
+Uvicorn~\cite{uvicorn2024} es un servidor ASGI (Asynchronous Server Gateway Interface) ultrarrápido, basado en Python, diseñado para proporcionar un rendimiento óptimo en aplicaciones web asincrónicas. Es el servidor elegido para el desarrollo del back-end de este proyecto porque es muy práctico para proyectos que necesitan una alta capacidad de respuesta y poca latencia, como aplicaciones en tiempo real y APIs.
+
+La principal ventaja de uvicorn es la capacidad para manejar \textbf{múltiples conexiones simultáneas} eficientemente, esto es gracias a su arquitectura basada en el bucle de eventos de asyncio. Lo hace excelente para aplicaciones que necesitan mucha concurrencia, como pueden ser los videojuegos. 
+
+En este proyecto, Uvicorn se utiliza como el servidor de back-end para desplegar la API desarrollada, garantizando un rendimiento robusto y una fácil escalabilidad.
+
+\section{Gestión y despliegue de contenedores}
+
+\subsection{Docker}
+Docker~\cite{docker} es una plataforma que permite empaquetar aplicaciones y sus dependencias en contenedores. De esta forma se asegura de que estas se ejecuten de manera consistente en cualquier entorno.
+
+Docker en el caso de este proyecto, \textbf{aísla las dependencias}. Esto significa que empaqueta todas las dependencias de FastApi en un contenedor, así asegura el funcionamiento de manera consistente en diferentes entornos sin problemas de compatibilidad. En cada uno de los contenedores se va a ejecutar una instancia de la aplicación aislada del sistema operativo anfitrión y de otros contenedores. Esto también lo hace más seguro y estable a los cambios, asegurando que las aplicaciones se ejecuten de forma idéntica en cualquier entorno, sea una máquina local, la nube o servidores de producción.
+
+Docker va a permitir que se cree una imagen del contenido que va a contener todo lo necesario para ejecutar la aplicación, haciendo que el \textbf{despliegue sea consistente} en cualquier servidor o plataforma de nube.
+
+\subsection{DevContainers}
+Para poder hacer portable la aplicación se hace uso de un Devcontainer. DevContainer~\cite{devcontainers} es un paradigma de uso de contenedores, que gestiona entornos de forma aislada y ligera, permitiendo a un desarrollador trabajar dentro de una versión del entorno, haciendo que esté dentro de un contenedor. 
+
+Un DevContainer puede dar un \textbf{entorno preconfigurado} dentro del IDE. Esto hace que se pueda ahorrar mucho tiempo preparando el proyecto y haciendo que el entorno esté listo cada vez que se arranque el contenedor. Así garantiza que el trabajo se hará en un ambiente consistente y replicable, independientemente de la configuración que se tenga en la máquina local, haciendo que se eliminen los problemas de configuración que pueden surgir en distintos entornos.
+Los entornos se definen con archivos de configuración sencillos, haciendo más fácil la creación y gestión de los entornos, incluyendo especificaciones sobre el sistema operativo, herramientas y configuraciones específicas del proyecto. 
+
+Gracias a estas características hace que sea una herramienta muy útil e interesante de utilizar para el desarrollo del proyecto.
+
+\section{Motor de videojuegos}
+
+\subsection{Unity}
+Unity~\cite{unity} es un motor de desarrollo de videojuegos, es de los más populares dentro de la industria de videojuegos. Se pueden desarrollar videojuegos 2D, 3D, realidad aumentada y realidad virtual. 
+
+Es un motor muy completo que permite desarrollar y desplegar el juego en varias plataformas como PC, web, realidad virtual y para móvil. 
+También tiene muchas \textbf{herramientas de desarrollo integradas}, para preparar las escenas, un sistema de físicas y herramientas de animación. Esto hace mucho más fácil la creación de contenido en tiempo real.
+
+
+\section{IDEs}
+\subsection{Visual Studio Code}
+Visual studio code~\cite{vscode} es el IDE elegido para desarrollar el <<Back-end>> de la aplicación. Este entorno de programación es muy versátil y permite trabajar con un gran número de lenguajes de programación, siendo de los más ligeros. 
+
+Para poder trabajar con Docker, se dispone de extensiones que permiten construir, administrar y desplegar contenedores directamente desde el editor. Esto incluye la \textbf{creación y gestión de imágenes Docker}, así como la configuración y ejecución de contenedores y servicios Docker Compose.
+
+Además, VSCode tiene una \textbf{terminal integrada}, esto junto a la posibilidad de tener entornos de desarrollo configurados con Docker, hacen de ese IDE una excelente opción para preparar DevContainers. 
+
+
+\subsection{Visual Studio}
+Visual Studio~\cite{visualstudio} es el IDE usado para desarrollar el código de los scripts del videojuego. Este es muy utilizado para la programación en C\#, el lenguaje principal para la programación en Unity.  
+
+Visual Studio se integra muy bien con Unity, como por ejemplo \textbf{IntelliSense}, que ofrece autocompletado de código para el motor, agilizando el desarrollo y con menos errores. También dispone de \textbf{Visual Studio Tools for Unity(VSTU)} que mejora la productividad al integrar perfectamente las características de Visual Studio con el flujo de trabajo de Unity. Pero lo más importante es que permite depurar proyectos de Unity directamente desde Visual Studio, haciendo más facil identificar y corregir errores.
+
+\section{Otros}
+\subsection{Jupyter notebook}
+Jupyter Notebook~\cite{jupyter} es una aplicación web de código abierto que permite crear documentos que contienen código ejecutable, ecuaciones, visualizaciones y texto narrativo. Es muy popular ya que se utiliza para la ciencia de datos, investigación y enseñanza, porque permite explorar datos, desarrollo de modelos y tener una documentación interactiva.
+
+Para este proyecto se ha utilizado para poder desarrollar más dinámicamente cada uno de los algoritmos que generan laberintos. Hace que desarrollar y probar sea más rápido, no hay necesidad de arrancar el servidor y Unity para poder ver el resultado, ya que se puede ejecutar y dibujar directamente en el Notebook. 
+
+
+
+
+

@@ -1,0 +1,51 @@
+\capitulo{7}{Conclusiones y Líneas de trabajo futuras}
+
+
+\section{Conclusiones}
+En este proyecto se ha conseguido realizar un juego en el que se generan laberintos de forma procedimental y que son navegables. 
+Como se ha mencionado en el apartado de aspectos relevantes del desarrollo, en este proyecto han surgido bastantes dificultades y se ha experimentado, haciendo que cambien los objetivos del proyecto. Se ha ido probando y cambiando hasta encontrar la herramienta más indicada para desarrollar el juego. 
+
+También es un proyecto que se ha alargado bastante en el tiempo, por lo que el conocimiento adquirido en el entorno laboral ha influido en las decisiones sobre qué herramientas y técnicas son más adecuadas.
+
+\subsection{Servidor}
+En un principio para este proyecto no se pensó en almacenar los laberintos en una base de datos. Pero tras comenzar el proyecto, fue una idea muy positiva.
+
+Usar FastAPI, gracias a toda la documentación que hay disponible, tuvo una curva de aprendizaje más suave, pero ya que se carecía de experiencia, preparar el servidor llevó una gran cantidad de tiempo y surgieron muchos bloqueos. 
+
+Encontrar qué tipo de base de datos tampoco fue tarea fácil, ya que al principio no se tuvo en cuenta cuál era mejor para almacenar los laberintos. Pero como se ha mencionado en aspectos relevantes del desarrollo, al ir avanzando, se llegó a la conclusión de que MongoDB era la mejor opción. De nuevo, gracias a la cantidad de documentación disponible se suaviza la curva de aprendizaje.
+\subsection{Unity}
+
+Antes de empezar a utilizarlo se barajaron muchas otras alternativas, pero fue la mejor entre todas las opciones. Cabe mencionar que aprender a usar Unity, cuando no se ha trabajado antes con un motor de videojuegos, consume mucho tiempo, requiere aprender muchos conceptos y desenvolverse al principio es costoso.
+Si no se ha trabajado antes con Unity, es algo muy importante a tener en cuenta, ya que puede que exista otra alternativa en caso de querer realizar una herramienta.
+
+Pero para trabajar en un videojuego, es el mejor motor para comenzar. Ofrece todo lo que se necesita, como elementos para la UI, una exportación del juego con ejecutable, objetos predefinidos, etc. Ahorra tiempo de desarrollo ya que se puede hacer uso de todo lo que ofrece el motor.
+
+Uno de los elementos que ofrece es UnityWebRequest, de no tenerla habría que preparar una clase desde cero para conectar el juego con el servidor. Gracias al manejo de solicitudes, y la compatibilidad con JSON hacen de esta clase que sea extremadamente útil, ahorrando una gran cantidad de tiempo y simplificando la integración con APIs y servicios web. 
+Cuando se eligió el motor no se tenía en cuenta este factor, pero cuando se eligió conectar el juego con un servidor, hizo el trabajo mucho más sencillo.
+
+Unity también ofrece objetos predefinidos, haciendo que no sea necesario diseñar objetos en 3D. Permite al desarrollador construir y estructurar juegos mucho más rápido sin necesitar conocimientos de modelado 3D. Lo mismo ocurre para construir la UI, ofrece botones y objetos sencillos para poder construir una UI de forma sencilla y rápida sin necesidad de preparar los botones manualmente.
+
+Si se quieren modificar cosas a bajo nivel es más limitante ya que no deja modificar o reescribir los elementos que ofrece, pero para conseguir desarrollar un videojuego ofrece una implementación de todos los elementos que se necesitan, haciendo de esta herramienta una muy completa. 
+
+
+\section{Líneas de trabajo futuras}
+
+%Explorar y optimizar los algoritmos
+
+\subsection{Introducción de seguridad en las comunicaciones}
+Una línea de trabajo que no se ha podido explorar es introducir usuarios. Cada usuario podría almacenar sus laberintos y poder volverlos a jugar. Es un cambio que exigiría introducir un cifrado de mensaje, ya que en el estado que se encuentra el proyecto, la comunicación está visible y se podría obtener la información que maneja. 
+
+Al no trabajar con usuarios, no hay información que sea comprometida, pero sigue siendo un fallo de seguridad grave.
+Debido a que no se puede establecer una relación entre usuario y peticiones realizadas al servidor, se deja abierta la puerta a un uso indebido del servicio. Esto puede hacer que usuarios malintencionados puedan tirar el servicio realizando peticiones de forma masiva.
+No se ha podido trabajar en la seguridad por falta de tiempo pero sería algo a mejorar en un futuro de este proyecto. Introducir usuarios también traería la necesidad de implementar un protocolo de autenticación.
+
+\subsection{Transformar laberintos a mazmorras}
+En el estado en el que se encuentra, ahora mismo no son mazmorras ya que carece de la generación de habitaciones. Es un cambio que exigiría adaptar todos los algoritmos, por lo que no se ha podido explorar. 
+Pero convertiría esta herramienta en un generador de mazmorras explorables.
+En esta línea, también sería muy positivo incluir elementos con los que el jugador pueda interactuar, como mapas, llaves y puertas para acceder a nuevas mazmorras. 
+
+\subsection{Algoritmos de resolución}
+Un cambio positivo para una línea futura de trabajo sería la implementación de un sistema de ayuda para el jugador que resuelva el laberinto, de forma que aparezca una guía que resuelva el laberinto. En caso de que se pierda el jugador, podría disponer de un botón que le indique el camino de salida del laberinto o mazmorra.
+
+\subsection{Despliegue en un servidor externo}
+Para que sea accesible a todos los clientes del servidor, se podría plantear hacerlo público con acceso mediante la API-Key para que se pueda hacer uso de los laberintos generados por el servicio. El desplegarlo en un servidor externo abre la puerta a poder distribuir el juego y que este funcione sin necesidad de tener desplegado el servidor localmente.

@@ -1,0 +1,347 @@
+\apendice{Plan de Proyecto Software}
+
+\section{Introducción}
+El desarrollo del presente proyecto se ha extendido durante 3 años por motivos personales, pero el tiempo de desarrollo efectivo es menor. Es por este motivo que, para desarrollar la planificación se va a tener el cuenta el tiempo productivo.
+
+Para el desarrollo de este proyecto se ha hecho una planificación utilizando la metodología Scrum. Se ha dividido el trabajo por sprints y para poder llevar un seguimiento de las tareas a realizar, se ha hecho uso de el método Kanban. Para poder llevar a cabo esta metodología, se ha hecho uso de la aplicación web Jira. En el método Kanban se utiliza un tablón dividido por varias columnas, cada una especifica un estado de la tarea, y se va actualizando en este tablero según van progresando las tareas.
+
+
+\section{Planificación temporal}
+Por lo mencionado anteriormente, aunque no haya sido el tiempo real de desarrollo, se va a dividir la planificación de sprints efectivos de tres semanas.
+
+\subsection{Fases del desarrollo}
+
+\begin{enumerate}
+    \item Pruebas de concepto
+    \item Primera Fase
+        \begin{enumerate}
+            \item Investigación del motor
+            \item Investigación de algoritmos de generación procedimental
+            \item Implementación en el motor
+        \end{enumerate}
+    \item Segunda Fase
+        \begin{enumerate}
+            \item Preparación del servidor
+            \item Preparación del front-end con Unity
+            \item Preparación de ejecutable
+            \item Tests
+            \item Documentación
+        \end{enumerate}
+\end{enumerate}
+
+
+
+\subsection{Sprint 1}
+Durante este sprint, se llevo a cabo una investigación de las posibles herramientas y lenguajes de programación que se podrían utilizar para desarrollar la idea del proyecto. Por ello se realizaron distintas pruebas de proyecto para comprobar qué problemas y qué ventajas se podrían encontrar durante el desarrollo. 
+\begin{itemize}
+    \item Java: Construcción de un prototipo desde cero en java con el algoritmo de Wilson
+    \item C\# y .NET: Construcción de un prototipo desde cero con C\# y .NET.
+\end{itemize}
+
+\subsection{Sprint 2}
+Durante este sprint, tras la investigación y las pruebas de concepto se comenzó a investigar la posibilidad de usar un motor gráfico como Unity. 
+\begin{itemize}
+    \item Aprendizaje sobre Unity: Se realizó un aprendizaje de este motor ya que es complejo y se carecía de experiencia previa con esta herramienta.
+    \item Preparación del entorno: Se creó el proyecto en el motor y se preparó la primera escena
+\end{itemize}
+
+\subsection{Sprint 3}
+En este sprint se trabajó en la estructura y en el algoritmo para poder generar el laberinto. Se necesitó de mucha investigación para aprender sobre cómo realizar estos pasos en Unity.
+\begin{itemize}
+    \item Desarrollo del la escena para el menú y para el juego
+    \item Búsqueda de un algoritmo sencillo para generar el laberinto
+    \item Implementación del algoritmo
+\end{itemize}
+
+\subsection{Sprint 4}
+Durante el desarrollo de este sprint se evaluaron los siguientes pasos y se comenzó a la <<Segunda Fase>> mencionada anteriormente. Se busca un nuevo diseño y se investiga como construir un servidor para conectarlo con el videojuego.
+\begin{itemize}
+    \item Aprendizaje sobre como preparar el servidor
+    \item Creación de la estructura base del servidor
+    \item Implementación básica del servidor
+    \item Implementación de la adaptación del algoritmo de Prim
+\end{itemize}
+
+\subsection{Sprint 5}
+Tras la preparación del diseño del servidor y comenzar con su implementación básica, este siguiente sprint tiene como foco implementar en Unity el videojuego. En esta segunda fase el papel de Unity cambia a ser el encargado de dibujar los laberintos. En este sprint también se continua desarrollando algoritmos.
+\begin{itemize}
+    \item Creación de las escenas necesarias para la interfaz de usuario
+    \item Implementación del sistema para dibujar el laberinto
+    \item Implementación de la adaptación del algoritmo de Kruskal
+    \item Implementación de un DevContainer y se añade Docker a la arquitectura 
+    \item Cambio de SQLite a MongoDB
+\end{itemize}
+
+\subsection{Sprint 6}
+En este sprint se continuó con el desarrollo de algoritmos de generación procedimental y se realizó un notebook de python para comparar sus tiempos de ejecución.
+\begin{itemize}
+    \item Implementación de la adaptación del algoritmo de DFS
+    \item Implementación de la adaptación del algoritmo del Autómata celular
+    \item Implementación de la adaptación del algoritmo del Eller
+    \item Implementación de la adaptación del algoritmo del Teselación
+    \item Implementación de la adaptación del algoritmo del Aldous Broder
+    \item Implementación de la adaptación del algoritmo del Árbol binario
+    \item Desarrollo en notebook para obtener gráficas para comparar los tiempos de ejecución
+\end{itemize}
+
+\subsection{Sprint 7}
+Tras realizar la implementación de los algoritmos se preparó el ejecutable y se realizaron pruebas para buscar errores, tras esto se arreglaron los errores encontrados.
+\begin{itemize}
+    \item Preparación de ejecutables
+    \item Solución de errores
+\end{itemize}
+
+\subsection{Sprint 8}
+Una vez terminado el proyecto se comenzó a desarrollar la documentación del proyecto. Durante este sprint se desarrolló la memoria.
+
+\subsection{Sprint 9}
+Tras desarrollar la memoria se realizó la documentación de los anexos del proyecto.
+
+\section{Estudio de viabilidad}
+Se va a proceder a realizar el estudio de viabilidad del proyecto. Este estudio no es representativo de un estudio de viabilidad de un videojuego, esto es porque este proyecto se ha centrado en el desarrollo visto desde un programador, no se tienen en cuenta el desarrollo artístico ya que se ha hecho uso de los recursos de la comunidad gratuitos.
+
+
+\subsection{Viabilidad económica}
+En esta sección se va realizar un análisis de los costes financieros que supone el desarrollo del presente proyecto. Para realizar este estudio, aunque el tiempo real de desarrollo han sido tres años, se tendrá en cuenta el tiempo de desarrollo efectivo. En otras palabras, se va a estudiar la viabilidad económica para un periodo efectivo. Los cálculos se realizarán como si se tratase de una nueva empresa con un único empleado, durante un periodo de 27 semanas.
+
+También hay que tener en cuenta que en el caso de Unity, si el último ejercicio fiscal de los ingresos fueron superiores a 100\,000 dolares estadounidenses, se tiene la obligación de comprar la edición profesional de Unity~\cite{unity}. Como no se comercializa el juego, no se necesita tener en cuenta estos gastos. También se va a presuponer que el proyecto es el primero desarrollado con Unity por lo que no hay precedentes que obliguen a comprar la licencia profesional de Unity.
+
+Para poder valorar la viabilidad económica se van a evaluar dos aspectos: los costes y los beneficios. En este caso, se asumirá que el proyecto lo lleva a cabo una empresa con liquidez suficiente como para que no sea necesaria una financiación.
+
+\subsubsection{Costes por recursos}
+En primer lugar, se van a analizar los costes derivados de los recursos del \textit{software} y \textit{hardware} que se han utilizado durante el desarrollo.
+
+Las licencias utilizadas han sido gratuitas, y se listarán más adelante en consideración de un desarrollo futuro en el que se requiera obtener un plan de pago. 
+
+Como ya se ha mencionado al inicio de esta sección, aunque la duración del proyecto han sido tres años, vamos a tener en cuenta el tiempo efectivo, por lo que estos cálculos se van a efectuar para un proyecto cuyo periodo de desarrollo ha durado 27 semanas, que equivalen a, aproximadamente, 7 meses.
+
+\begin{itemize}
+    \item \textbf{Hardware:}\\ 
+    Durante el desarrollo de esta aplicación se ha hecho uso de 1 ordenador portátil. El modelo es MSI Raider GE66 12UH-005ES, este equipo tiene actualmente un precio de 3\,098,86 € y se espera amortizar en 5 años~\cite{portatil}.
+    Su coste anual de amortización será: 
+    \[
+        \frac{3\,098,86\ \text{€}}{5\ \text{años}} \approx 619,77\ \text{€/año}
+    \]
+
+    \item \textbf{Software:}\\
+    Se ha utilizado una licencia de sistema operativo Windows 11 Pro. Tiene un valor de 199 € mediante medios oficiales~\cite{windows}. Dado que tiene una vida útil de 4 años, se espera amortizar en este tiempo.
+    \[
+        \frac{199,00\ \text{€}}{4\ \text{años}} \approx 49,75\ \text{€/año}
+    \]
+\end{itemize}
+
+De esta forma, el coste anual derivado de recursos queda definido en la Tabla \ref{CostResources}.
+
+\vspace{1em}
+\begin{table}[h!]
+        \caption{Coste anual por recursos.}
+	\label{CostResources}
+	\centering
+	\begin{tabular}{ l  c }
+		\toprule
+		\textbf{Recurso} & \textbf{Coste anual} \\ \midrule
+		Windows 11 Pro & 49,75 €\\
+		Portátil & 619,77 € \\
+		Unity & 0,00 €\\
+		\midrule
+		\textbf{Total:} & 669,52 € \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+\subsubsection{Costes de personal}
+Para simplificar las fórmulas a continuación, utilizaremos las siguientes abreviaturas:
+\begin{itemize}
+    \item \textbf{SBA}: Salario Bruto Anual (jornada parcial)
+    \item \textbf{SBM}: Salario Bruto Mensual
+    \item \textbf{CASS}: Contribución Anual a la Seguridad Social
+    \item \textbf{CMSS}: Contribución Mensual a la Seguridad Social
+    \item \textbf{CP}: Coste en Personal
+\end{itemize}
+
+Al realizar estas estimaciones, se va a considerar una empresa pequeña de un único empleado, como se ha mencionado anteriormente. Se va a asumir también, que la duración ha sido de 7 meses efectivos y ha sido desarrollado por un empleado de categoría <<Junior>>. El sueldo anual bruto promedio se encuentra alrededor de unos 25\,000~€ con una jornada completa~\cite{salario}. Para formalizar sus condiciones, se va a considerar que es un contrato a 30 horas a la semana con 12 pagas anuales.
+
+\[
+\text{SBA} = \text{25\,000~€}  \cdot \frac{\text{30 horas}}{\text{40 horas}} = \text{18\,750~€}
+\]
+
+
+Con esto obtenemos el salario bruto mensual: 
+\[
+\text{SBM} = \frac{\text{18\,750~€}}{\text{12 pagas}} = \text{1\,562,5~€}
+\]
+
+Para obtener el coste en personal hay que sumarle el salario bruto del empleado, calculamos la contribución anual a la seguridad social~\cite{seguridadsocial} por parte de la empresa.
+Esta se compone de 5 costes:
+\begin{enumerate}
+    \item  Contigencias comunes: 23,60\%
+    \item Desempleo: 5,5\%
+    \item Fogasa: 0,2\%
+    \item Formación profesional 0,6\%
+    \item Mecanismo de Equidad Intergeneracional 0,58\%
+\end{enumerate}
+Haciendo que la contribución sea un 30,48\% del total.
+\[
+\text{CASS} = 25\,000\ \text{€} \times 0.3048 = 7\,620\ \text{€}
+\]
+
+\[
+\text{CMSS} = \frac{7\,620\ \text{€}}{12} \approx 635\ \text{€/mes}
+\]
+
+El coste en personal total sería el siguiente: 
+
+\[
+\text{CP} = \text{SBM} + \text{CMSS}
+\]
+
+\[
+\text{CP} = \text{1\,562,5 €} + \text{635 €} = \text{2\,197,5 €}
+\]
+
+\subsubsection{Coste total}
+
+Considerando todos los gastos anteriores, durante un periodo de 7 meses, se calcula el coste total del proyecto (v. Tabla \ref{Costproject}).
+
+\[
+\text{CP (7 meses)} = \text{2\,197,5 €} \cdot 7 \text{ meses} = \text{15\,322,5 €}
+\]
+
+\begin{table}[H]
+        \caption{Coste total del proyecto}
+	\label{Costproject}
+	\centering
+	\begin{tabular}{ l  c }
+		\toprule
+		\textbf{Concepto} & \textbf{Coste} \\ \midrule
+		Personal & 15\,322,5 €\\
+		\textit{Hardware} & 361,53  € \\
+		\textit{Software} & 29,02 €\\
+		Otros & 0,00 €\\
+		
+		\midrule
+		\textbf{Coste Total del proyecto:} & 15\,713,05 € \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+\subsection{Viabilidad legal}
+
+En esta sección se analizará la viabilidad legal del proyecto, revisando las licencias asociadas a cada una de las dependencias utilizadas. Es crucial garantizar que todas las licencias sean compatibles con el uso previsto del software, especialmente cuando se busca elegir la más restrictiva posible para asegurar el cumplimiento legal.
+
+\subsubsection{Licencias de Unity}
+
+Para el desarrollo de este proyecto se han utilizado las siguientes licencias relacionadas con Unity:
+\begin{itemize}
+    \item \textbf{Unity}: Licencia gratuita. Para más información, se puede consultar el siguiente enlace: \url{https://support.unity.com/hc/en-us/categories/201268913-Licenses}.
+    \item \textbf{Elementos de interfaz gráfica de usuario}: Licencia para uso personal y comercial disponible en: \url{https://mandinhart.itch.io/garden-cozy-kit-uigui-buttons-and-icons}.
+\end{itemize}
+
+\subsubsection{Dependencias de Python}
+
+Las dependencias de Python utilizadas en este proyecto y sus respectivas licencias\footnote{Es importante destacar que toda la información referente a las licencias de las dependencias de Python se puede consultar fácilmente en \url{https://pypi.org/}, lo cual facilita la verificación y actualización constante de las licencias utilizadas en el proyecto.} se detallan en la Tabla \ref{tab:python-licenses}. Nos servirán para poder determinar qué licencia debemos emplear en el repositorio.
+
+\subsubsection{Licencia del proyecto}
+
+La elección de la licencia más restrictiva es esencial para asegurar que el uso del \textit{software} cumple con todas las restricciones y obligaciones legales. En el análisis, las licencias BSD-3-Clause y Apache 2.0 son las más restrictivas entre las utilizadas. Ambas requieren que se incluya una copia de la licencia original, manteniendo así el reconocimiento de los derechos de los autores originales. La licencia Apache 2.0 añade, además, una cláusula de patentes, lo que puede incrementar las restricciones de uso en comparación con la BSD-3-Clause~\cite{licencia1,licencia2}.
+
+Por lo tanto, para maximizar la compatibilidad y asegurar el cumplimiento legal, se recomienda adoptar las prácticas y obligaciones definidas por la licencia Apache 2.0, dado que incluye las restricciones adicionales sobre patentes y proporciona una mayor cobertura en términos de cumplimiento legal.
+
+\subsubsection{Implicaciones legales y cumplimiento}
+
+Es fundamental que los desarrolladores comprendan las implicaciones legales de cada licencia utilizada en el proyecto. A continuación, se presentan algunas directrices para cumplir con las obligaciones legales al redistribuir o modificar el \textit{software}:
+
+\begin{itemize}
+    \item \textbf{Incluir una copia de la licencia}. Al distribuir el \textit{software}, es obligatorio incluir una copia de la licencia elegida.
+    \item \textbf{Mantener los avisos de derechos de autor}. No se deben eliminar ni modificar los avisos de derechos de autor presentes en el código fuente.
+    \item \textbf{Proporcionar modificaciones bajo la misma licencia}. Si se realizan modificaciones a una dependencia con una licencia \textit{copyleft}, como la Apache 2.0, es necesario redistribuir dichas modificaciones bajo la misma licencia.
+    \item \textbf{Informar sobre las licencias aplicables}. La documentación del proyecto debe incluir información clara sobre las licencias aplicables a cada parte del \textit{software}.
+\end{itemize}
+
+Siguiendo estas directrices, se asegura que el proyecto cumple con todas las obligaciones legales y se minimiza el riesgo de infracciones de licencias.
+
+\vspace{1cm}
+
+% TABLA DE LICENCIAS
+\begin{ThreePartTable}
+% Nota al pie
+\renewcommand\TPTminimum{\textwidth}
+\begin{TableNotes}
+\footnotesize % letra pequeña (tamaño letra de pie de página)
+    \item[a] \url{https://mit-license.org/}
+    \item[b] \url{http://www.apache.org/licenses/}
+    \item[c] \url{https://opensource.org/license/bsd-2-clause}
+    \item[d] \url{https://opensource.org/license/BSD-3-clause}
+    \item[e] \url{https://www.isc.org/licenses/}
+    \item[f] \url{https://docs.python.org/3/license.html}
+\end{TableNotes}
+
+% Comienza la tabla
+\begin{longtable}{llp{7cm}}
+    \caption{Dependencias de Python y sus licencias}\label{tab:python-licenses}\\
+    % ESTRUCTURA
+    \toprule
+    \textbf{Dependencia} & \textbf{Versión} & \textbf{Licencia} \\ \midrule
+    \endfirsthead
+    \caption*{Dependencias de Python y sus licencias (continuación)}\\
+    \toprule
+    \textbf{Dependencia} & \textbf{Versión} & \textbf{Licencia} \\ \midrule
+    \endhead
+    \bottomrule
+    \endfoot
+    \bottomrule
+    \insertTableNotes  % Notas
+    \endlastfoot
+    % DATOS DE LA TABLA
+    annotated-types & 0.6.0 & MIT License\tnote{a} \\ 
+    anyio & 4.3.0 & MIT License\tnote{a} \\ 
+    debugpy & 1.8.1 & MIT License\tnote{a} \\ 
+    executing & 2.0.1 & MIT License\tnote{a} \\ 
+    fastapi & 0.110.1 & MIT License\tnote{a} \\ 
+    h11 & 0.14.0 & MIT License\tnote{a} \\ 
+    jedi & 0.19.1 & MIT License\tnote{a} \\ 
+    parso & 0.8.4 & MIT License\tnote{a} \\ 
+    platformdirs & 4.2.0 & MIT License\tnote{a} \\ 
+    pure-eval & 0.2.2 & MIT License\tnote{a} \\ 
+    pydantic & 2.7.0 & MIT License\tnote{a} \\ 
+    pydantic\_core & 2.18.1 & MIT License\tnote{a} \\ 
+    six & 1.16.0 & MIT License\tnote{a} \\ 
+    stack-data & 0.6.3 & MIT License\tnote{a} \\ 
+    toml & 0.10.2 & MIT License\tnote{a} \\ 
+    asttokens & 2.4.1 & Apache License 2.0\tnote{b} \\ 
+    beanie & 1.25.0 & Apache License 2.0\tnote{b} \\ 
+    lazy-model & 0.2.0 &  Apache License 2.0\tnote{b} \\ 
+    motor & 3.4.0 &  Apache License 2.0\tnote{b} \\ 
+    packaging & 24.0 & Apache License 2.0\tnote{b} ~y BSD-2-Clause License\tnote{c} \\ 
+    pymongo & 4.6.3 &  Apache License 2.0\tnote{b} \\ 
+    python-dateutil & 2.9.0.post0 &  Apache License 2.0\tnote{b} \\ 
+    tornado & 6.4 &  Apache License 2.0\tnote{b} \\ 
+    click & 8.1.7 & BSD-3-Clause License\tnote{d} \\ 
+    comm & 0.2.2 & BSD-3-Clause License\tnote{d} \\ 
+    idna & 3.7 & BSD-3-Clause License\tnote{d} \\ 
+    ipykernel & 6.29.4 & BSD-3-Clause License\tnote{d} \\ 
+    ipython & 8.23.0 & BSD-3-Clause License\tnote{d} \\ 
+    jupyter\_client & 8.6.1 & BSD-3-Clause License\tnote{d} \\ 
+    jupyter\_core & 5.7.2 & BSD-3-Clause License\tnote{d} \\ 
+    matplotlib-inline & 0.1.6 & BSD-3-Clause License\tnote{d} \\ 
+    prompt-toolkit & 3.0.43 & BSD-3-Clause License\tnote{d} \\ 
+    psutil & 5.9.8 & BSD-3-Clause License\tnote{d} \\ 
+    pyzmq & 25.1.2 & BSD-3-Clause License\tnote{d} \\ 
+    starlette & 0.37.2 & BSD-3-Clause License\tnote{d} \\ 
+    traitlets & 5.14.2 & BSD-3-Clause License\tnote{d} \\ 
+    uvicorn & 0.29.0 & BSD-3-Clause License\tnote{d} \\ 
+    decorator & 5.1.1 & BSD-2-Clause License\tnote{c} \\ 
+    nest-asyncio & 1.6.0 & BSD-2-Clause License\tnote{c} \\ 
+    Pygments & 2.17.2 & BSD-2-Clause License\tnote{c} \\ 
+    dnspython & 2.6.1 & ISC License\tnote{e} \\ 
+    pexpect & 4.9.0 & ISC License\tnote{e} \\ 
+    ptyprocess & 0.7.0 & ISC License\tnote{e} \\ 
+    typing\_extensions & 4.11.0 & Python Software Foundation License\tnote{f} \\ 
+    sniffio & 1.3.1 & Apache License 2.0\tnote{b} ~y MIT License\tnote{a} \\
+\end{longtable}
+\end{ThreePartTable}
+
+
+
