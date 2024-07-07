@@ -12,6 +12,15 @@
 La generación procedimental, es la técnica que a través de algoritmos, permite crear contenido para videojuegos de forma autónoma o de la mano de un diseñador. 
 
 En este trabajo de fin de grado, se van a explorar distintos algoritmos para poder probar esta técnica, de forma que se obtengan mapas navegables como lo serían en un videojuego. Estos mapas van a tener la forma de un laberinto y van a ser generados en un servidor, replicando la arquitectura cliente-servidor que se tendría en un estudio de videojuegos real.
+Se han adaptado los siguientes algoritmos de generación procedimental:
+- Prim
+- Depth First Search-DFS
+- Autómata celular
+- Eller
+- Kruskal
+- Teselación
+- Aldous Broder
+- Árbol Binario
 
 ## Keywords
 
@@ -23,22 +32,37 @@ En este trabajo de fin de grado, se van a explorar distintos algoritmos para pod
 ![ProceduralGeneration](https://img.shields.io/badge/procedural_generation-87F5F5?style=for-the-badge&logo=p&logoColor=black&labelColor=D8D8D8)
 
 
-## Características
-
-En este proyecto se han utilizado varias adaptaciones de algoritmos 
-
 ## Tecnologías Utilizadas
 
 - **Unity**: Versión 2021.3.25f1
 - **Lenguajes de Programación**: C# y Python
 - **Entornos de Desarrollo**: Visual Studio 2019, Visual Studio Code
 
-## Instalación y Ejecución
+## Manual
 
-Sigue estos pasos para clonar el repositorio y ejecutar el proyecto en tu máquina local:
+La aplicación funcional se encuentra en la carpeta de Segunda Fase, es esta carpeta la que almacena todo lo necesario para continuar desarrollando este proyecto.
 
-## Como arrancar el servidor
+El código del proyecto se divide entre dos partes principales una para la aplicación de Unity, incluida en /AlgoritmosYMazmorras y la parte del servidor de laberintos contenida en /Mazmorras.
 
-cd src
-uvicorn app:app --reload
+# Requisitos de la aplicación
 
+Las dependencias necesarias para lanzar la aplicación se encuentran dentro del fichero `requirements.txt`. Para instalarlas se introduce el siguiente comando:
+```bash
+pip install -r requirements.txt
+```
+
+# Arrancar el servidor
+
+Para poder arrancar el servidor es necesario tener instalado docker previamente, para más información consultar la carpeta /Documentación.
+Desde la terminal de la máquina, hay que ubicarla en la carpeta de desarrollo /Mazmorras y escribir el siguiente comando:
+```bash
+docker compose up
+```
+Tras esto se necesita arrancar el ejecutable 'AlgoritmosYMazmorras'
+
+# Parar el servidor
+
+Para parar el servidor se puede hacer desde la terminal con Ctrl+C, pero para eliminar el contenedor por completo se necesita ejecutar el siguiente comando:
+```bash
+docker compose down
+```
