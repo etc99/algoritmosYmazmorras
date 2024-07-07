@@ -66,3 +66,7 @@ Para parar el servidor se puede hacer desde la terminal con Ctrl+C, pero para el
 ```bash
 docker compose down
 ```
+
+## Video de demostración
+En el siguiente [enlace](https://youtu.be/EVkPipZ_BGY) se puede visualizar una demonstración del funcionamiento de la aplicación 
+
